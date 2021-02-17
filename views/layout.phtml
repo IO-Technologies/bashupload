@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title><?=$title ? : 'bashupload / upload files from command line'?></title>
+  
+	<link rel="stylesheet" href="/styles.css?<?=STATIC_VERSION?>">
+	<script src="/script.js?<?=STATIC_VERSION?>"></script>
+	
+	<?php if ( WEB ) { ?>
+  	<link rel="icon" href="/logo.png">
+  	<meta name="description" content="<?=$description ? : 'Upload files from command line to cloud and then download to desktop or server'?>">
+  	<meta name="keywords" content="Upload from command line, upload using bash, upload file to server, download file from server">
+  	<meta name="author" content="zeroapps.dev">
+	<?php } ?>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div id="content">
+		<header>
+			<?php if ( $uri != '/' ) { ?>
+				<p>The <b><a href="/">bashupload</a></b> is a place to upload files from command line or other ways and download them elsewhere.
+			<?php } else { ?>
+				<h1>bashupload</h1>
+				<p>
+				  Upload files from command line to easily share between servers, desktops and mobiles, <?=file_upload_max_size()?> max.
+				  Files are stored for <?=EXPIRE_DAYS?> days<?=MAX_DOWNLOADS > 1 ? '' : ' and can be downloaded only once' ?>.
+				</p>
+			<?php } ?>
+		</header>
+
+		<?php include __DIR__ . "/{$action}.phtml"; ?>
+	</div>
+
+	<footer>
+		by <a target="_blank" href="https://github.com/IO-Technologies">IO tech</a>
+		based on <a target="_blank" href="/disclaimer">terms & conditions</a>
+		<br/>
+		
+		report bugs, leave notes or help
+		<a href="https://github.com/denfromio/bashupload" target="_blank">on github</a>
+	</footer>
+	
+</body>
+</html>

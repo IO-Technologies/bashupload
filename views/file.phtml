@@ -1,0 +1,19 @@
+<?php if ( $sorry ) { ?>
+	<p class="sorry">404 no such file</p>
+<?php } else {?>
+  <div id="focus">
+  	<h1><?=htmlspecialchars($file['name'])?></h1>
+  	
+  	<div id="upload-instructions">
+  	  <div align="center" id="browser-header">Download from command line:</div>
+  	  <code>wget <?=$_SERVER['REQUEST_SCHEME']?>://<?=HOST?><?=$_SERVER['REQUEST_URI']?></code>
+  	</div>
+  	
+  	<p class="note" align="center">
+  		<a href="<?=$_SERVER['REQUEST_URI']?>?download=1">Direct download</a>
+  		(<?=number_format($file['size'] / 1024, 1, '.', ',')?> KB)
+  	</p>
+  	
+  	<input type="text" id="copy"/>
+	</div>
+<?php } ?>

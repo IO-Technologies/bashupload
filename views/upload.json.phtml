@@ -1,0 +1,11 @@
+<?php
+
+$total = 0;
+foreach ( $uploads as $file ) $res[$file['upload_name']] = [
+	'url' => $_SERVER['REQUEST_SCHEME'] . '://' . HOST . '/' . $file['id'] . '/' . $file['name'],
+	'size' => number_format($file['size'], 0, '.', ' ')
+];
+
+if ( $error ) $res['error'] = $error;
+
+echo json_encode($res);

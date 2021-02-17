@@ -1,0 +1,35 @@
+<div id="focus">
+  <div id="upload-instructions"
+       onclick="copy_code_to_clipboard();"
+       onmouseover="document.querySelector('#browser-header').innerText='Click to copy'"
+       onmouseout="document.querySelector('#browser-header').innerText=''">
+    
+    <div id="browser-header"></div>
+    
+  	<code>curl <?=HOST?> -T your_file.txt</code>
+  </div>
+  
+  <p class="note" align="center">
+  	<span class="aslo">alternatively</span>
+  	<a id=choosefile href="javascript:document.getElementById('inputfile').click();">choose file(s)</a>
+  	<span class="aslo">to upload</span>
+  	
+  	<?php if ( $has_docs ) { ?>
+  	  <a href="/how_to_upload_file_to_server" title="Uploading to a server through cli">or read more docs</a>
+  	<?php } ?>
+  </p>
+  
+  <form method="post" onsubmit="return false;">
+  	<input type="file" style="display:none;" multiple id="inputfile" onchange="upload();" />
+  </form>
+  
+  <input type="text" id="copy"/>
+</div>
+
+
+<ul id="uploaded"></ul>
+<div id="dropper">Drop your files here...</div>
+<div id="dropzone"></div>
+
+
+<script>init_uploads();</script>
