@@ -41,6 +41,7 @@ else if ( $file['size'] )
 	header('Content-Transfer-Encoding: binary');
 	header('Content-Length: ' . $file['size']);
 	header('X-Accel-Redirect: /files/' . md5($file['path']));
+	readfile($file_path);
 	exit;
 }
 
